@@ -22,13 +22,13 @@ const db = mysql.createConnection(
   );
 
 
-
-
-
-
 // Default response for any othere request (Not Found)
 app.use((req, res) => {
     res.status(404).end();
+});
+
+db.query(`SELECT * FROM candidates`, (err,rows) => {
+    console.log(rows);
 });
 
 app.listen(PORT, () => {
