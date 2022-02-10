@@ -11,15 +11,15 @@ app.use(express.json());
 // Connect to database
 const db = mysql.createConnection(
     {
-        host: 'localhost',
-        // Your MySQL username,
-        user: 'jaswal1p',
-        // Your MySQL password
-        password: 'nahcYj-6fegwo-pifbyt',
-        database: 'election'
+      host: 'localhost',
+      // Your MySQL username,
+      user: 'root',
+      // Your MySQL password
+      password: 'nahcYj-6fegwo-pifbyt',
+      database: 'election'
     },
     console.log('Connected to the election database.')
-);
+  );
 
 
 
