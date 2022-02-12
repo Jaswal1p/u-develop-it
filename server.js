@@ -45,11 +45,11 @@ app.get('/api/candidates', (req, res) => {
 // Get a single candidate
 app.get('/api/candidate/:id', (req, res) => {
   const sql = `SELECT candidates.*, parties.name 
-    AS party_name
-    FROM candidates
-    LEFT JOIN parties 
-    ON candidates.party_id = parties.id; 
-    WHERE candidates.id = ?`;
+             AS party_name 
+             FROM candidates 
+             LEFT JOIN parties 
+             ON candidates.party_id = parties.id 
+             WHERE candidates.id = ?`;
   const params = [req.params.id];
 
   db.query(sql, params, (err, row) => {
@@ -124,8 +124,9 @@ app.put('/api/candidate/:id', (req, res) => {
   if (errors) {
     res.status(400).json({ error: errors });
     return;
-  }
-  const sql = `UPDATE candidates SET party_id = ?
+}
+
+  const sql = `UPDATE candidates SET party_id = ? 
                WHERE id = ?`;
   const params = [req.body.party_id, req.params.id];
   db.query(sql, params, (err, result) => {
